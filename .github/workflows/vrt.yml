@@ -14,6 +14,12 @@ jobs:
       - uses: actions/setup-node@v4
       - uses: actions/setup-go@v5
         with: { go-version: '1.26' }
+      - name: debug token
+        run: |
+          echo "length: ${#VRT_REPO_TOKEN}"
+          echo "prefix: ${VRT_REPO_TOKEN:0:12}"
+        env:
+          VRT_REPO_TOKEN: ${{ secrets.VRT_REPO_TOKEN }}
       - name: build vrt-cli
         run: |
           git clone --depth 1 https://x-access-token:${{ secrets.VRT_REPO_TOKEN }}@github.com/joaoalberto-dev/vrt.git /tmp/vrt
