@@ -8,6 +8,7 @@ on:
 jobs:
   vrt:
     runs-on: ubuntu-latest
+    environment: vrt
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
